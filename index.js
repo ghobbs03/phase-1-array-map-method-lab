@@ -12,5 +12,15 @@ const tutorials = [
 ];
 
 const titleCased = () => {
-  return tutorials
+  return tutorials.map(element => findWordsInString(element))
+}
+
+
+function findWordsInString(title) {
+  const words = title.split(' '); // split str up by words
+  const capitalWords = words.map(word => {
+    const firstLetter = word[0];
+    return word.replace(firstLetter, firstLetter.toUpperCase());
+  }); // makes first letter uppercase
+  return capitalWords.join(' '); // put back together
 }
